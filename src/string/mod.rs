@@ -1,4 +1,5 @@
 pub mod roman_to_int;
+pub mod add_binary;
 
 pub fn run() {
   display_roman_to_int("XIV");

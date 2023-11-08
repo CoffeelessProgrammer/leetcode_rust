@@ -1,7 +1,12 @@
-// #![allow(dead_code)]
+#![allow(unused)]
 
-pub mod easy;
+pub mod math;
+pub mod bit_manipulation;
+pub mod array;
+pub mod string;
 
 fn main() {
-    easy::run();
+    // array::run();
+    // string::run();
+    // bit_manipulation::run();
 }

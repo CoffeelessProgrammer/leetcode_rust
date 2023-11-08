@@ -1,4 +1,4 @@
-#![allow(dead_code)]
+// #![allow(dead_code)]
 
 use phf::phf_map;
 
@@ -10,7 +10,7 @@ use phf::phf_map;
  * Memory Usage: ? MB (%)
  */
 
-static ROMAN_NUMERALS_STR: phf::Map<&'static str, i32> = phf_map! {
+static ROMAN_NUMERALS_STR: phf::Map<&str, i32> = phf_map! {
   "I" => 1,
   "V" => 5,
   "X" => 10,
