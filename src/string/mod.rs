@@ -1,5 +1,5 @@
-pub mod roman_to_int;
-pub mod add_binary;
+pub mod p0013_roman_to_int;
+pub mod p0067_add_binary;
 
 pub fn run() {
   display_roman_to_int("XIV");
@@ -7,5 +7,5 @@ pub fn run() {
 }
 
 fn display_roman_to_int(s: &str) {
-  println!("{} -> {}", s, roman_to_int::solve(String::from(s)));
+  println!("{} -> {}", s, p0013_roman_to_int::solve(s));
 }

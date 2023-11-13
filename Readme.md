@@ -4,7 +4,7 @@
 - Solutions Visualized – [@CoffeelessProgrammer | Instagram](https://www.instagram.com/coffeelessprogrammer/)
 
 ## Environment
-- <span>Rust v1.72.1</span>
+- <span>Rust v1.73.0</span>
 
 ## Problems Completed
 
@@ -16,6 +16,7 @@
   - <span>190. Reverse Bits</span>
   - <span>191. Number of 1 Bits</span>
 - **Strings**
+  - <span>13. Roman to Integer</span>
   - <span>67. Add Binary</span>
 
 ## Resources

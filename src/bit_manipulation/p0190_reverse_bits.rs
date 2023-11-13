@@ -13,7 +13,6 @@ pub fn solve(mut x: u32) -> u32 {
   for i in 0..32 {
     // println!("\n({i}) x={:#32b}\nresult={:#32b}", x, result);
     result <<= 1;
-
     if (x & mask == 1) { result += 1 }
     x >>= 1;
   }
