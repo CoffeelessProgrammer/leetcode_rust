@@ -8,20 +8,45 @@ use phf::phf_map;
  * URL: https://leetcode.com/problems/roman-to-integer/
  *
  * Runtime: 0 ms (100%)
- * Memory Usage: 2.32 MB (10.58%)
+ * Memory Usage: 2.06 MB (63.81%)
  */
 
-const NUMERALS: [(char, u32); 7] = [
-  ('I', 1),
-  ('V', 5),
-  ('X', 10),
-  ('L', 50),
-  ('C', 100),
-  ('D', 500),
-  ('M', 1000),
-];
-
 pub fn solve(s: &str) -> i32 {
+    let map: HashMap<char, i32> = HashMap::from([
+      ('I', 1),
+      ('V', 5),
+      ('X', 10),
+      ('L', 50),
+      ('C', 100),
+      ('D', 500),
+      ('M', 1000)
+    ]);
+    let mut result = 0;
+    let mut previous = '0';
+    let mut subtract_previous = false;
+
+    for (i, roman) in s.chars().enumerate() {
+        let val = map.get(&roman).unwrap();
+
+        if subtract_previous {
+            result += val - map.get(&previous).unwrap();
+            subtract_previous = false;
+            continue;
+        }
+
+        if i+1 < s.len() && val < map.get(&(s.get(i+1..i+2).unwrap().as_bytes()[0] as char)).unwrap() {
+            subtract_previous = true;
+        } else {
+            result += val;
+        }
+
+        previous = roman;
+    }
+
+    return result;
+}
+
+pub fn solve_rev(s: &str) -> i32 {
   let map: HashMap<char, i32> = HashMap::from([
     ('I', 1),
     ('V', 5),
@@ -32,29 +57,24 @@ pub fn solve(s: &str) -> i32 {
     ('M', 1000)
   ]);
   let mut result = 0;
-  let mut subtract_previous = false;
 
-  for (i, char) in s.chars().enumerate() {
-    let val = map.get(&char).unwrap();
+  let mut previous = 0;
 
-    if subtract_previous {
-      result += val - map.get(&(s.get(i-1..i).unwrap().as_bytes()[0] as char)).unwrap();
-      subtract_previous = false;
-      continue;
+  for (i, roman) in s.chars().rev().enumerate() {
+    let val = map.get(&roman).unwrap();
+
+    if val < &previous {
+      result -= val
     }
+    else { result += val }
 
-    if i+1 < s.len() && val < map.get(&(s.get(i+1..i+2).unwrap().as_bytes()[0] as char)).unwrap() {
-      subtract_previous = true;
-    } else {
-      result += val;
-    }
-
+    previous = val.clone();
   }
 
-  result
+  return result;
 }
 
-pub fn solve_phf(s: String) -> i32 {
+pub fn solve_phf(s: &str) -> i32 {
   let mut result: i32 = 0;
 
   let mut buf = [0; 1];
@@ -111,17 +131,38 @@ mod roman_to_int_tests {
   use super::*;
 
   #[test]
-  fn happy_path() {
-    assert_eq!(solve("LVIII"), 58);
+  fn roman_i() {
+    let roman_numeral = "I";
+    let ans = 1;
+    assert_eq!(solve(roman_numeral), ans);
+    assert_eq!(solve_rev(roman_numeral), ans);
+    assert_eq!(solve_phf(roman_numeral), ans);
   }
 
   #[test]
-  fn subtraction_before_additions() {
-    assert_eq!(solve("XLII"), 42);
+  fn roman_lviii() {
+    let roman_numeral = "LVIII";
+    let ans = 58;
+    assert_eq!(solve(roman_numeral), ans);
+    assert_eq!(solve_rev(roman_numeral), ans);
+    assert_eq!(solve_phf(roman_numeral), ans);
   }
 
   #[test]
-  fn multiple_subtractions() {
-    assert_eq!(solve("MCMXCIV"), 1994);
+  fn roman_xlii() {
+    let roman_numeral = "XLII";
+    let ans = 42;
+    assert_eq!(solve(roman_numeral), ans);
+    assert_eq!(solve_rev(roman_numeral), ans);
+    assert_eq!(solve_phf(roman_numeral), ans);
+  }
+
+  #[test]
+  fn roman_mcmxciv() {
+    let roman_numeral = "MCMXCIV";
+    let ans = 1994;
+    assert_eq!(solve(roman_numeral), ans);
+    assert_eq!(solve_rev(roman_numeral), ans);
+    assert_eq!(solve_phf(roman_numeral), ans);
   }
 }

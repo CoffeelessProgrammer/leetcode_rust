@@ -18,6 +18,8 @@
 - **Strings**
   - <span>13. Roman to Integer</span>
   - <span>67. Add Binary</span>
+- **Dynamic Programming**
+  - <span>70. climb Stairs</span>
 
 ## Resources
 
