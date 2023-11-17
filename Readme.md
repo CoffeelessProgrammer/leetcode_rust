@@ -15,11 +15,14 @@
 - **Bit Manipulation**
   - <span>190. Reverse Bits</span>
   - <span>191. Number of 1 Bits</span>
+- **Arrays**
+  - <span>27. Remove Element</span>
 - **Strings**
   - <span>13. Roman to Integer</span>
   - <span>67. Add Binary</span>
 - **Dynamic Programming**
-  - <span>70. climb Stairs</span>
+  - <span>70. Climb Stairs</span>
+  - <span>198. House Robber</span>
 
 ## Resources
 
