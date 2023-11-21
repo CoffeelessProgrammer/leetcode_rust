@@ -17,6 +17,7 @@
   - <span>191. Number of 1 Bits</span>
 - **Arrays**
   - <span>27. Remove Element</span>
+  - <span>88. Merge Sorted Array</span>
 - **Strings**
   - <span>13. Roman to Integer</span>
   - <span>67. Add Binary</span>
