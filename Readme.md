@@ -4,7 +4,7 @@
 - Solutions Visualized – [@CoffeelessProgrammer | Instagram](https://www.instagram.com/coffeelessprogrammer/)
 
 ## Environment
-- <span>Rust v1.73.0</span>
+- <span>Rust v1.74.0</span>
 
 ## Problems Completed
 
@@ -18,6 +18,7 @@
 - **Arrays**
   - <span>27. Remove Element</span>
   - <span>88. Merge Sorted Array</span>
+  - <span>283. Move Zeroes</span>
 - **Strings**
   - <span>13. Roman to Integer</span>
   - <span>67. Add Binary</span>

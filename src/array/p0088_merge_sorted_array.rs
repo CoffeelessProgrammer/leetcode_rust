@@ -32,7 +32,7 @@ pub fn solve(nums1: &mut Vec<i32>, mut m: usize, nums2: Vec<i32>, mut n: usize) 
 }
 
 #[cfg(test)]
-mod template_tests {
+mod merge_sorted_array_tests {
   use super::*;
 
   #[test]
